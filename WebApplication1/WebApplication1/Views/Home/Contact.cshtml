@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@Html.Partial("MenuBar") <!--Xây dựng một menu chung-->
+@Styles.Render("~/Content/css/phone.css")
+<!--/header-->
+<div class="hotline-phone-ring-wrap">
+    <div class="hotline-phone-ring">
+        <div class="hotline-phone-ring-circle"></div>
+        <div class="hotline-phone-ring-circle-fill"></div>
+        <div class="hotline-phone-ring-img-circle">
+            <a href="tel:0983928113" class="pps-btn-img">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <div class="hotline-bar">
+        <a href="tel:0983928113">
+            <span class="text-hotline">0983.928.113</span>
+        </a>
+    </div>
+</div>
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+        <div class="container pt-lg-5 py-3">
+        </div>
+    </div>
+</section>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="Index">Trang chủ</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> Trang</li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> Liên hệ</li>
+        </ul>
+    </div>
+</section>
+<!-- contacts -->
+<section class="w3l-contact-7 pt-5" id="contact">
+    <div class="contacts-9 pt-lg-5 pt-md-4">
+        <div class="container">
+            <div class="top-map">
+                <div class="row map-content-9">
+                    <div class="col-lg-8">
+                        <div class="contact-form">
+                            <h5 class="mb-2">Liên hệ để được tư vấn và tham quan miễn phí</h5>
+                            <p class="mb-4">Các trường phải được điền đầy đủ (bao gồm họ tên, ngày gặp, sdt, email,...)</p>
+                            <form action="/Booking/Book" method="post" class="">
+                                <div class="form-grid">
+                                    <div class="input-field">
+                                        <input type="text" name="name" id="name" placeholder="Họ và tên" required="">
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="date" name="date" id="date" placeholder="Ngày hẹn" required="">
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="tel" name="telephone" id="tel" placeholder="Số điện thoại" required="">
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="email" name="email" id="email" placeholder="Email" required="">
+                                    </div>
+                                    <div class="input-field">
+                                        <input type="text" name="address" id="address" placeholder="Địa chỉ" required="">
+                                    </div>
+                                    <div class="input-field">
+                                        <select name="service">
+                                            <option value="">Dịch vụ</option>
+                                            <option value="sale">Bán</option>
+                                            <option value="rent">Thuê</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field ">
+                                        <textarea name="notation" id="sss" placeholder="Ghi chú (Tên bds cần quan tâm, thắc măc)"></textarea>
+                                    </div>
+                                </div>
+                                <input type="checkbox"> <label>Lưu tên tôi, email và website trong trình duyệt cho lần tiếp theo</label>
+                                <button type="submit" class="btn btn-primary btn-style mt-3">Gửi</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 cont-details">
+                        <address>
+                            <h5 class="">Địa chỉ văn phòng chúng tôi</h5>
+                            <p><span class="fa fa-map-marker"></span>150 Lê Thánh Tôn Phường Bến Nghé Quận 1 TPHCM </p>
+
+                            <h5 class="mt-4 pt-lg-3">Số điện thoại</h5>
+                            <p>
+                                <span class="fa fa-mobile"></span> <strong>Số di động :</strong>
+                                <a href="tel:+1(12) 366 411 4999"> 09386457</a>
+                            </p>
+
+                            <p>
+                                <span class="fa fa-phone"></span> <strong>Số điện thoại bàn :</strong>
+                                <a href="tel:+1(12) 366 411 4999"> 03437464</a>
+                            </p>
+
+                            <p>
+                                <span class="fa fa-envelope"></span> <strong>Email :</strong>
+                                <a href="mailto:mail@example.com"> AndromedaHome@gmail.com</a>
+                            </p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map mt-5">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2895687731!2d-74.26055986835598!3d40.697668402590374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1562582305883!5m2!1sen!2sin"
+                    frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        </div>
+    </div>
+</section>
+@Html.Partial("Footer")

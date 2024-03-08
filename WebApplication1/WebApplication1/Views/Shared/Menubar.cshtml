@@ -1,0 +1,161 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Một căn nhà mới - một niềm vui lớn</title>
+    <link href='//fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,700,700italic,600italic' rel='stylesheet' type='text/css'>
+    <!-- google fonts -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="~/Content/css/style-starter.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+    <!--header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg stroke px-0">
+                <h1>
+                    <a class="navbar-brand" href="/Home/Index">
+                        <span class="fa fa-home"></span> AndromedaHome
+                    </a>
+                </h1>
+                <!-- if logo is image enable this
+                <a class="navbar-brand" href="#index.html">
+                    <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                </a> -->
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+                        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-lg-5 mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Home/Index">Trang chủ <span class="sr-only">(hiện tại)</span></a>
+                        </li>
+                        <li class="nav-item listing__active">
+                            @if (Session["uid"] == null)
+                            {
+                                <a class="nav-link" href="/Estate/Index?page=1">Danh sách bất động sản</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" href="/Estate/Index?page=1&uid=@Session["uid"]">Danh sách bất động sản</a>
+                            }
+                        </li>
+                        <li class="nav-item dropdown property__active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Bất động sản <span class="fa fa-angle-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if (Session["uid"] == null)
+                                {
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyProject?page=1">Dự án</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=House">Bất động sản nhà ở</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=Industry">Bất động sản công nghiệp</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=Retail">Cho thuê mặt bằng bán lẻ</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=Office">Cho thuê văn phòng</a>
+                                }
+                                else
+                                {
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyProject?page=1&uid=@Session["uid"]">Dự án</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=House&uid=@Session["uid"]">Bất động sản nhà ở</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=Industry&uid=@Session["uid"]">Bất động sản công nghiệp</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=Retail&uid=@Session["uid"]">Cho thuê mặt bằng bán lẻ</a>
+                                    <a class="dropdown-item ps__active" href="/Estate/FilterbyType?page=1&type=Office&uid=@Session["uid"]">Cho thuê văn phòng</a>
+                                }
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown pages__active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Trang <span class="fa fa-angle-down"></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if (Session["uid"] == null)
+                                {
+                                    <a class="dropdown-item about__active" href="/Careers/Apply">Tuyển dụng</a>
+                                    <a class="dropdown-item about__active" href="/Statistic/Index">Thị trường bất động sản</a>
+                                    <a class="dropdown-item about__active" href="/Home/Blog">Blog</a>
+                                    <a class="dropdown-item about__active" href="/Home/About">Giới thiệu</a>
+                                    <a class="dropdown-item contact__active" href="/Home/Contact"><!--Chỉ cần ghi tên action ko cần ghi tên controller-->Liên hệ</a>
+                                }
+                                else
+                                {
+                                    <a class="dropdown-item about__active" href="/Careers/Apply?uid=@Session["uid"]">Tuyển dụng</a>
+                                    <a class="dropdown-item about__active" href="/Statistic/Index">Thị trường bất động sản</a>
+                                    <a class="dropdown-item about__active" href="/Home/Blog?uid=@Session["uid"]">Blog</a>
+                                    <a class="dropdown-item about__active" href="/Home/About?uid=@Session["uid"]">Giới thiệu</a>
+                                    <a class="dropdown-item contact__active" href="/Home/Contact?uid=@Session["uid"]"><!--Chỉ cần ghi tên action ko cần ghi tên controller-->Liên hệ</a>
+                                }
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="top-quote mt-lg-0" id="register">
+                        @if (Session["user_name"] == null)
+                        {
+                            <a href="/Account/Signin" class="btn btn-style btn-primary"><span class="fa fa-user"></span>Đăng nhập</a>
+                        }
+                        else
+                        {
+                            <label class="dropdown">
+                                <div class="dd-button">
+                                    @Session["user_name"].ToString()
+                                </div>
+                                <div class="active-dot">
+                                    <span class="tooltiptext">Đang hoạt động</span>
+                                </div>
+                                <input type="checkbox" class="dd-input" id="test">
+                                <ul class="dd-menu">
+                                    <li><a id="show_item" href="/Account/UserInfo?uid=@Session["uid"]">Thông tin người dùng</a></li>
+                                    <li><a id="edit_item" href="/Account/EditInfo?uid=@Session["uid"]">Chỉnh sửa tài khoản</a></li>
+                                    <li><a id="logout_item" href="/Account/Logout">Đăng xuất</a></li>                                                                        
+                                </ul>
+                            </label>   
+                            <script>
+                                $(".active-dot").mouseover(function () {
+                                   
+                                })
+                            </script>
+                            <!--<div class="btn btn-style btn-primary"></div>-->
+                        }
+                    </div>
+                    <!--/search-right-->
+                    <div class="search mx-3">
+                        <input class="search_box" type="checkbox" id="search_box" name="srchbx">
+                        <label class="fa fa-search" for="search_box"></label>
+                        <div class="search_form">
+                            <form action="error.html" method="GET">
+                                <input type="text" placeholder="Search" name="searchtxt"><input type="submit" value="search" name="srchbtn">
+                            </form>
+                        </div>
+                    </div>
+                    <!--//search-right-->
+                </div>
+
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>

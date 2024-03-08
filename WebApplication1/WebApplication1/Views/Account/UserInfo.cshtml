@@ -1,0 +1,64 @@
+﻿@model WebApplication1.Models.Userdetail
+@Html.Partial("Menubar")
+@Styles.Render("~/Content/css/profile.css")
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+        <div class="container pt-lg-5 py-3">
+        </div>
+    </div>
+</section>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="/Home/Index">Trang chủ</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span>Thông tin người dùng</li>
+        </ul>
+    </div>
+</section>
+<section class="section about-section gray-bg" id="about">
+    <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+            <div class="col-lg-6">
+                <div class="about-avatar">
+                    <img class="avatar-img" src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+                    <div class="newactive-dot"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-text go-to">
+                    <h3 class="dark-color">@Model.name </h3>
+                    @if (Model.iscustomer == 0)
+                    {
+                        <h6 class="theme-color lead">@Model.username - (Khách hàng)</h6>
+
+                    }
+                    else
+                    {
+                        <h6 class="theme-color lead">@Model.username - (Quản trị viên)</h6>
+                    }
+                    <div class="row about-list">
+                        <div class="col-md-6">
+                            <div class="media">
+                                <label>Ngày sinh: </label>
+                                <p>@Model.dob</p>
+                            </div>
+                            <div class="media">
+                                <label>Địa chỉ: </label>
+                                <p>@Model.address</p>
+                            </div>
+                            <div class="media">
+                                <label>Số điện thoại: </label>
+                                <p>@Model.phonenumber</p>
+                            </div>
+                            <div class="media">
+                                <label>E-mail: </label>
+                                <p>@Model.email</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</section>
+@Html.Partial("Footer")

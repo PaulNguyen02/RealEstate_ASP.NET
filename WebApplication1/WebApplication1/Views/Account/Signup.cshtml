@@ -1,0 +1,100 @@
+﻿@Styles.Render("~/Content/css/register.css")
+@Scripts.Render("~/Scripts/Validate.js")
+<body>
+    <h1 class="header-w3ls">Đăng ký thành viên của AndromedaHome</h1>
+    <div class="signup-w3ls">
+        <div class="signup-agile1">
+            <form action="#" method="post">
+                <div class="form-control">
+                    <label class="header">Họ và tên :</label>
+                    <input type="text" id="firstname" name="name" placeholder="Nguyễn Văn A" title="Please enter your First Name" required="">
+                </div>
+
+                <div class="form-control">
+                    <label class="header">Ngày sinh :</label>
+                    <input type="date" id="lastname" name="dob" title="Please enter your Last Name" required="">
+                </div>
+
+                <div class="form-control">
+                    <label class="header">Địa chỉ :</label>
+                    <input type="text" id="firstname" name="address" title="Please enter a valid email" required="">
+                </div>
+
+                <div class="form-control">
+                    <label class="header">Số điện thoại :</label>
+                    <input type="tel" id="phonenumber" name="phonenumber" placeholder="0948-19384" title="Please enter a valid phonenumber" required="">
+                </div>
+
+                <div class="form-control">
+                    <label class="header">Email Address :</label>
+                    <input type="email" id="email" name="email" placeholder="mail@example.com" title="Please enter a valid email" required="">
+                </div>
+
+                <div class="form-control">
+                    <label class="header">Username :</label>
+                    <input type="text" id="firstname" name="username" placeholder="Nguyễn Văn A" title="Please enter your First Name" required="">
+                </div>
+
+                <div class="form-control">
+                    <label class="header">Password :</label>
+                    <input type="password" class="lock" name="password" placeholder="password" id="password1" required="">
+                </div>
+
+                <div class="form-control">
+                    <label class="header">Confirm Password :</label>
+                    <input type="password" class="lock" name="confirm-password" placeholder="confirmpassword" id="password2" required="">
+                </div>
+                <input type="submit" id="signup" name="signup" class="register" value="Register">
+            </form>
+            @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+                    window.onload = function () {
+                        alert("Tên tài khoản đã tồn tại");
+                    };
+                </script>
+            }
+            else
+            {
+                <script type="text/javascript">
+                    document.getElementById("signup").onclick = function () {
+                        var phone = document.getElementById("phonenumber").value;
+                        var email = document.getElementById("email").value;                       
+                        var pass1 = document.getElementById("password1").value;
+                        var pass2 = document.getElementById("password2").value;
+                        if (validatePhoneNumber(phone) == false) {
+                            document.getElementById("phonenumber").setCustomValidity("Phonenumber is invalid !");
+                        }
+                        else {
+                            if (validateEmail(email) == false) {
+                                document.getElementById("email").setCustomValidity("Email is invalid !");
+                            }
+                            else {
+                                if (validatePassword(pass1, pass2) == false) {
+                                    document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+                                }
+                                else {
+                                    form.submit();
+                                }
+                            }
+                        }
+                        
+                    };
+                </script>
+            }
+        </div>
+        <div class="signup-agile2">
+            <h3>Signup With Your Social Accounts</h3>
+            <div class="social-w3ls">
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i>Youtube</a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                    <li><a href="#"><i class="fa fa-whatsapp"></i>Whatsapp</a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i>Google</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+

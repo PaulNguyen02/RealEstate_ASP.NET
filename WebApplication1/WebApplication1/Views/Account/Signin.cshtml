@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication1.Models.USERS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/Content/css/login.css")
+<body>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function ()
+            {
+                alert("Bạn chưa có tài khoản ? Hãy tạo mới");
+            };
+        </script>
+    }
+    <div class="padding-all">
+        <div class="header">
+            <h1>Đăng nhập</h1>
+        </div>
+        <div class="design-w3l">
+            <div class="mail-form-agile">
+                <form action="/Account/Signin" method="post">
+                    <input type="text" name="username" placeholder="Tên người dùng" required="" />
+                    <input type="password" name="password" class="padding" placeholder="Mật khẩu" required="" />
+                    <input type="submit" name="submit" value="Đăng nhập">
+                </form>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <div class="footer">
+            <p>Chưa có tài khoản ? Hãy<a href="/Account/Signup"> đăng ký</a></p>
+        </div>
+    </div>
+</body>

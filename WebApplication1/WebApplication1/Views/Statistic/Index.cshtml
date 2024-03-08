@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WebApplication1.Models.BATDONGSAN>
+@Html.Partial("MenuBar")
+@Styles.Render("~/Content/css/chart.css")
+@Scripts.Render("~/Scripts/Chart.js")
+@Scripts.Render("~/Scripts/jquery-1.11.2.min.js")
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+        <div class="container pt-lg-5 py-3">
+        </div>
+    </div>
+</section>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span>Thị trường bất động sản</li>
+        </ul>
+    </div>
+</section>
+<div class="main">
+    <h1>Bảng số liệu giá nhà hiện nay</h1>
+    <div class="line_chart stack_bar">
+        <div class="line_left">
+            <h3>Chú thích</h3>
+            <ul>
+                <li class="lab1">Label 1</li>
+                <li class="lab2">Label 2</li>
+            </ul>
+        </div>
+        <div class="line_right">
+            <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                <option value="null">Quốc gia</option>
+                <option value="US">Mỹ</option>
+                <option value="JAP">Nhật</option>
+                <option value="KOR">Hàn</option>
+                <option value="GER">Đức</option>
+                <option value="AUS">Úc</option>
+                <option value="VN">Việt Nam</option>
+            </select>
+        </div>
+        <div class="clear"> </div>
+    </div>
+    <div class="area_chart">
+        <div class="area_chart_left">
+            <h3>AREA CHART</h3>
+            <canvas id="line" height="300" width="470" style="width: 470px; height: 300px;"></canvas>
+            <script>
+                var lineChartData = {
+                    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
+                    datasets: [
+                        {
+                            fillColor: "#f7c757",
+                            strokeColor: "#ff9c44",
+                            pointColor: "#e68d09",
+                            pointStrokeColor: "#fff",
+                            data: [20, 35, 45, 50, 50, 65, 80]
+                        }
+                    ]
+
+                };
+                new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
+            </script>
+        </div>
+        <div class="area_chart_right">
+            <h3>BAR CHART</h3>
+            <canvas id="bar" height="300" width="470" style="width: 470px; height: 300px;"></canvas>
+            <script>
+                var barChartData = {
+                    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Mon"],
+                    datasets: [
+                        {
+                            fillColor: "#f7c757",
+                            strokeColor: "#f7c757",
+                            data: [65, 59, 90, 81, 56, 55, 40]
+                        },
+                        {
+                            fillColor: "#ff9c44",
+                            strokeColor: "#ff9c44",
+                            data: [25, 35, 45, 50, 50, 65, 80]
+                        }
+                    ]
+
+                };
+                new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+            </script>
+        </div>
+    </div>
+</div>
+<script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+           function hideURLbar(){ window.scrollTo(0,1); } </script>
+</body>
